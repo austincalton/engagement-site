@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austin + Michelle</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <div class="outer-grid">
+      <div class="main-grid">
+        <h2>Austin + Michelle</h2>
+        <input type="text" id="password" name="password" required>
+        <br>
+        <div id="password-submit">Go</div>
+      </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+        $('#password-submit').on('click',function(){
+            var key = '0307';
+
+            if ($('#password').val() === key){
+                // window.location.replace('');
+                $('.main-grid').css('background-image','none');
+                $('.main-grid').html(`<video width="100%" height="auto" controls autoplay src="video/austin-michelle-engagement-final-cut.mp4"></video>`)
+            } else {
+                alert('The password you entered was incorrect. Please try again.')
+            }
+        })
+    })
+  </script>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .outer-grid {
+        display: grid;
+        grid-template-columns: auto 60% auto;
+        grid-template-rows: 100vh;
+        grid-template-areas: 
+        '. main .'
+        ;
+    }
+    .main-grid {
+        grid-area: main;
+        text-align: center;
+        background-image: url(images/engagement2.png);
+        background-color: rgba(255,255,255,0.2);
+        background-blend-mode: color;
+        background-size: cover;
+        color: #fff;
+        padding-top: 15vh;
+    }
+    .main-grid h2 {
+        font-weight: 100;
+        font-size: 3vw;
+    }
+    .main-grid h3 {
+        font-weight: 100;
+    }
+    #password {
+        padding: 1%;
+        width: 15%;
+        text-align: center;
+        border: solid 0.5px #fff;
+        margin: 7% 0 2% 0;
+        color: #fff;
+        background: none;
+    }
+    #password-submit {
+        padding: 1%;
+        width: 15%;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #fff;
+        border: solid 0.5px #fff;
+        color: #2e7dcf;
+    }
+    #password-submit:hover {
+        cursor: pointer;
+    }
+    textarea:focus, input:focus{
+        outline: none;
+    }
+    @media (max-width: 1100px) {
+        .outer-grid {
+            grid-template-columns: 100%;
+            grid-template-rows: 100vh;
+            grid-template-areas: 
+            'main'
+            ;
+        }
+        .main-grid h2 {
+            font-size: 8vw;
+        }
+        #password, #password-submit {
+            width: 33%;
+        }
+    }
+</style>
+</body>
+</html>
